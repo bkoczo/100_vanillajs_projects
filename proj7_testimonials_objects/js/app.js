@@ -44,7 +44,7 @@ buttons.forEach(function(button){
             else {
                 counter++;
             }
-                switchCustomer()
+            switchCustomer()
         }
         
     })
