@@ -1,3 +1,6 @@
+/*eslint-env es6,browser,node,commonjs,es2021*/
+
+
 const itemForm = document.getElementById('itemForm');
 const feedBack = document.querySelector('.feedback');
 const inputText = document.getElementById('itemInput');
@@ -6,7 +9,6 @@ const itemList = document.querySelector('.item-list');
 
 let itemArray = [];
 
-const modalForm = document.getElementById('modalForm');
 const modalBtn = document.getElementById('modalBtn');
 const modalInput = document.getElementById('modalInput');
 const modal = document.querySelector('.modal');
@@ -31,22 +33,20 @@ itemForm.addEventListener('submit', function (e) {
 
     }
     btnFunctions();
-    inputText.value='';
+    inputText.value = '';
 })
 
 // delete all btn
-deleteBtn.addEventListener('click', function (e) {
-    removeAll();
+deleteBtn.addEventListener('click', function () {
+        const items = itemList.querySelectorAll('.item');
+    items.forEach(function (item) {
+        itemList.removeChild(item);
+    })
     itemArray = [];
 
 })
 
-function removeAll() {
-    const items = itemList.querySelectorAll('.item');
-    items.forEach(function (item) {
-        itemList.removeChild(item);
-    })
-}
+
 
 //btn functions
 function btnFunctions() {
@@ -57,8 +57,7 @@ function btnFunctions() {
             if (item.querySelector('.item-name').classList.contains('completed')) {
                 item.querySelector('.item-name').classList.remove('completed');
                 item.querySelector('.complete-item').classList.remove('visibility');
-            }
-            else {
+            } else {
                 item.querySelector('.item-name').classList.add('completed');
                 item.querySelector('.complete-item').classList.add('visibility');
             }
@@ -66,15 +65,15 @@ function btnFunctions() {
         //edit
         item.querySelector('.edit-item').addEventListener('click', function () {
             modal.style.display = "block";
-            modalBtn.addEventListener('click',function(){
-             item.querySelector('.item-name').textContent=modalInput.value;
-             modal.style.display = "none";
-            modalInput.value='';
-            })
-            
-            /*setTimeout(function(){
+            modalBtn.addEventListener('click', function () {
+                item.querySelector('.item-name').textContent = modalInput.value;
                 modal.style.display = "none";
-            },1000)*/
+                modalInput.value = '';
+            })
+
+            setTimeout(function(){
+                modal.style.display = "none";
+            },1000)
         })
 
         //delete
@@ -84,4 +83,3 @@ function btnFunctions() {
     })
 
 }
-
