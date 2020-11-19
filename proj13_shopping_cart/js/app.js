@@ -78,7 +78,7 @@ addCartBtn.forEach(function(current){
 
 
   calculateCart();
-
+  addButtonFunction()
 })
 })
 
