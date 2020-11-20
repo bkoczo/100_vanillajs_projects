@@ -1,7 +1,6 @@
 
 
 const addCartBtn = document.querySelectorAll('.store-item-icon');
-const removeCartBtn = document.querySelectorAll('.cart-item-remove');
 const mainCartBtn = document.getElementById('cart-info');
 const cart = document.getElementById('cart');
 const clearCartBtn = document.getElementById('clear-cart');
@@ -76,7 +75,6 @@ addCartBtn.forEach(function(current){
   </div>`)
 
 
-
   calculateCart();
   addButtonFunction()
 })
@@ -84,6 +82,7 @@ addCartBtn.forEach(function(current){
 
 //remove single item functionality
 function addButtonFunction(){
+    let removeCartBtn = document.querySelectorAll('.cart-item-remove');
 removeCartBtn.forEach(function(button){
     button.addEventListener('click',function(){
         button.parentElement.remove();
