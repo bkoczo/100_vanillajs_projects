@@ -1,0 +1,9 @@
+#mycanvas{
+    background-color: #31f0f0;
+    margin: 50px 0px 0px 100px;
+}
+
+.img{
+    background-image: url('./reward.png');
+    background-repeat: repeat;
+}
